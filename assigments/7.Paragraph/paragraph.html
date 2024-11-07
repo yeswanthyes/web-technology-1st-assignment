@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Paragraph Style</title>
+</head>
+<body>
+    <h2>Change Paragraph Style</h2>
+
+    <div>
+        <label for="fontType">Font Type:</label>
+        <select id="fontType">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="fontSize">Font Size:</label>
+        <select id="fontSize">
+            <option value="16px">16px</option>
+            <option value="20px">20px</option>
+            <option value="24px">24px</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="fontColor">Font Color:</label>
+        <input type="color" id="fontColor" value="#000000">
+    </div>
+
+    <p id="text">This is a sample paragraph. You can change the style using the controls above.</p>
+
+    <script>
+        const fontTypeSelect = document.getElementById('fontType');
+        const fontSizeSelect = document.getElementById('fontSize');
+        const fontColorPicker = document.getElementById('fontColor');
+        const text = document.getElementById('text');
+
+        fontTypeSelect.addEventListener('change', () => {
+            text.style.fontFamily = fontTypeSelect.value;
+        });
+
+        fontSizeSelect.addEventListener('change', () => {
+            text.style.fontSize = fontSizeSelect.value;
+        });
+
+        fontColorPicker.addEventListener('input', () => {
+            text.style.color = fontColorPicker.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Days Between Dates</title>
+    <script>
+        function calculateDays() {
+            const date1 = new Date(document.getElementById("date1").value);
+            const date2 = new Date(document.getElementById("date2").value);
+            const timeDifference = Math.abs(date2.getTime() - date1.getTime());
+            const dayDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+            document.getElementById("result").innerText = "Number of days between dates: " + dayDifference;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calculate Days Between Dates</h2>
+    <label for="date1">Select Date 1:</label>
+    <input type="date" id="date1">
+    <br><br>
+    <label for="date2">Select Date 2:</label>
+    <input type="date" id="date2">
+    <br><br>
+    <button onclick="calculateDays()">Calculate Days</button>
+    <p id="result">Number of days between dates: </p>
+</body>
+</html>

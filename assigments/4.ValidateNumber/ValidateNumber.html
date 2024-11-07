@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Validation</title>
+</head>
+<body>
+    <h2>Enter Mobile Number:</h2>
+    <input type="text" id="mobileNumber" placeholder="Enter 10-digit mobile number">
+    <button onclick="validateMobileNumber()">Validate</button>
+    <p id="result"></p>
+
+    <script>
+        function validateMobileNumber() {
+            var number = document.getElementById('mobileNumber').value;
+            var regex = /^\d{10}$/;
+            var result = regex.test(number);
+
+            if (result) {
+                document.getElementById('result').textContent = "Valid mobile number.";    
+            } else {
+                document.getElementById('result').textContent = "Invalid mobile number. Please enter a 10-digit number.";
+            }
+        }
+    </script>
+</body>
+</html>

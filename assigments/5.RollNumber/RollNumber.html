@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Roll Number Info</title>
+    <script>
+        function displayStudentInfo() {
+            const rollNumber = document.getElementById("rollNumber").value;
+            const yearCode = rollNumber.substring(2, 4);
+            const branchCode = rollNumber.substring(4, 6);
+            let year, branch;
+
+            switch (yearCode) {
+                case '21':
+                    year = 'final year';
+                    break;
+                case '22':
+                    year = 'third year';
+                    break;
+                case '23':
+                    year = 'second year';
+                    break;
+                case '24':
+                    year = 'first year';
+                    break;
+                default:
+                    year = 'unknown year';
+            }
+
+            switch (branchCode) {
+                case 'CS':
+                    branch = 'CSE';
+                    break;
+                case 'EC':
+                    branch = 'ECE';
+                    break;
+                    case 'AD':
+                    branch = 'AIDS';
+                    break;
+                default:
+                    branch = 'unknown branch';
+            }
+
+            document.getElementById("studentInfo").innerText = `The student belongs to ${year} ${branch}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Roll Number Info</h2>
+    <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+    <button onclick="displayStudentInfo()">Display Info</button>
+    <p id="studentInfo"></p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Operations</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function changeBorderWidth() {
+            const borderWidth = document.getElementById("borderWidth").value;
+            const table = document.getElementById("myTable");
+            table.style.borderWidth = borderWidth + "px";
+            for (let i = 0; i < table.rows.length; i++) {
+                for (let j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].style.borderWidth = borderWidth + "px";
+                }
+            }
+        }
+
+        function changeColors() {
+            const bgColor = document.getElementById("bgColorPicker").value;
+            const fgColor = document.getElementById("fgColorPicker").value;
+            const table = document.getElementById("myTable");
+
+            table.style.backgroundColor = bgColor;
+            table.style.color = fgColor;
+        }
+
+        function alignText() {
+            const alignment = document.getElementById("textAlign").value;
+            const table = document.getElementById("myTable");
+
+            for (let i = 0; i < table.rows.length; i++) {
+                for (let j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].style.textAlign = alignment;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Table Operations</h2>
+    
+    <table id="myTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>Row 1 Col 1</td>
+            <td>Row 1 Col 2</td>
+            <td>Row 1 Col 3</td>
+        </tr>
+        <tr>
+            <td>Row 2 Col 1</td>
+            <td>Row 2 Col 2</td>
+            <td>Row 2 Col 3</td>
+        </tr>
+    </table>
+    <br>
+    
+    <label for="borderWidth">Border Width:</label>
+    <select id="borderWidth" onchange="changeBorderWidth()">
+        <option value="1">1px</option>
+        <option value="2">2px</option>
+        <option value="3">3px</option>
+        <option value="4">4px</option>
+        <option value="5">5px</option>
+    </select>
+    
+    <br><br>
+
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" onchange="changeColors()">
+    
+    <label for="fgColorPicker">Foreground Color:</label>
+    <input type="color" id="fgColorPicker" onchange="changeColors()">
+    
+    <br><br>
+
+    <label for="textAlign">Text Alignment:</label>
+    <select id="textAlign" onchange="alignText()">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+    </select>
+    
+</body>
+</html>

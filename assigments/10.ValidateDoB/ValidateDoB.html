@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date of Birth Validation</title>
+    <script>
+        function validateDate() {
+            const dateInput = document.getElementById("dob").value;
+            const date = new Date(dateInput);
+            const minDate = new Date("2000-01-01");
+            const maxDate = new Date("2020-09-01");
+
+            if (date < minDate || date > maxDate) {
+                alert("Date must be between 01.01.2000 and 01.09.2020");
+                return false;
+            } else {
+                alert("Date is valid");
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Date of Birth Validation</h2>
+    <form onsubmit="return validateDate()">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" value="2020-01-01" min="2000-01-01" max="2020-09-01">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Operations</title>
+    <script>
+        function analyzeText() {
+            const text = document.getElementById("inputText").value;
+            let alphabetCount = 0, digitCount = 0, specialCharCount = 0;
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (/[a-zA-Z]/.test(char)) {
+                    alphabetCount++;
+                } else if (/[0-9]/.test(char)) {
+                    digitCount++;
+                } else if (/[^a-zA-Z0-9]/.test(char)) {
+                    specialCharCount++;
+                }
+            }
+
+            document.getElementById("alphabetCount").innerText = "Alphabets: " + alphabetCount;
+            document.getElementById("digitCount").innerText = "Digits: " + digitCount;
+            document.getElementById("specialCharCount").innerText = "Special Characters: " + specialCharCount;
+        }
+
+        function changeColors() {
+            const bgColor = document.getElementById("bgColorPicker").value;
+            const fgColor = document.getElementById("fgColorPicker").value;
+            const textArea = document.getElementById("inputText");
+
+            textArea.style.backgroundColor = bgColor;
+            textArea.style.color = fgColor;
+        }
+    </script>
+</head>
+<body>
+    <h2>Text Operations</h2>
+    <textarea id="inputText" placeholder="Type your text here..."></textarea>
+    <br><br>
+    <button onclick="analyzeText()">Analyze Text</button>
+    <p id="alphabetCount">Alphabets: 0</p>
+    <p id="digitCount">Digits: 0</p>
+    <p id="specialCharCount">Special Characters: 0</p>
+    <br>
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" onchange="changeColors()">
+    <br><br>
+    <label for="fgColorPicker">Foreground Color:</label>
+    <input type="color" id="fgColorPicker" onchange="changeColors()">
+</body>
+</html>

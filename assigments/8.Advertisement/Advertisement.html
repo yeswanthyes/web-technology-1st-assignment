@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement Banner</title>
+    <style>
+        #adBanner {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="adBanner">Ad will appear here</div>
+
+    <script>
+        const ads = [
+            "Buy one get one free!",
+            "50% off on all items!",
+            "Subscribe now and save 20%!"
+        ];
+
+        let currentIndex = 0;
+
+        function showAd() {
+            const adBanner = document.getElementById('adBanner');
+            adBanner.textContent = ads[currentIndex];
+            currentIndex = (currentIndex + 1) % ads.length;
+        }
+
+        setInterval(showAd, 3000);
+    </script>
+</body>
+</html>
